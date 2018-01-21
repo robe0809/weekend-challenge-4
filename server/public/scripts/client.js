@@ -40,19 +40,17 @@ self.escape = function (pics) {
         $http.put('/gallery/' + pics.id, pics)
         .then(function (response) {
             console.log('successful response', response);
-            pics.views ++;
         });
     }
     // keeps track of likes
     
     self.love = function (pics) {
         pics.likes++
-        $http.put('/gallery/' + pics.id, pics)
+        $http.put('/gallery/views/' + pics.id, pics)
         .then(function (response) {
             console.log('successful response', response);
-            pics.likes++;
         }
-    };
+        )}
 
     // allows user to make a comment
     self.makeComment = function (person, comment) {

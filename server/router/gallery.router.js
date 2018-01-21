@@ -28,7 +28,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.put('/:id', (req, res) => {
+router.put('/views/:id', (req, res) => {
     let queryText = `UPDATE gallery SET likes=(gallery.likes + 1) WHERE id=$1`; 
     pool.query(queryText, [req.params.id])
     .then((result) => {
