@@ -23,28 +23,33 @@
     <div id="picDiv" ng-repeat="pics in vm.imageList" class="col-md-4">
         <a target="_blank" href=""><img id="onLoadImg" ng-click="vm.togglePictures(pics)" ng-src="{{pics.img}}"></a>
         <div id="modalDiv" ng-if="pics.showModal">
+
             <section id="modal-body">
-                <span ng-click="vm.togglePictures(pics)" class="escapeModal">&times;</span>
-                <p>Views: {{pics.count + 1}}</p>
+                    <!-- ng-click="vm.togglePictures(pics)" -->
+                <span ng-click="vm.escape(pics)"class="escapeModal">&times;</span>
+                <p>Views: {{pics.views + 1}}</p>
+
                 <!-- <span ng-click="vm.previous()" class="previous"><i class="fa fa-arrow-left" ng-click="previous()" style="font-size: 56px"></i></span> -->
-                    <img id="modalImg"ng-src="{{pics.img}}">
+                    <img id="modalImg" ng-src="{{pics.img}}">
                 <!-- <span ng-click="vm.next(pics.img)" class="next"><i class="fa fa-arrow-right" ng-click="next(pics)" style="font-size: 56px"></i></span> -->
+                
                 <div id="description">
                     <p>{{pics.description}}</p>
                 </div>
+
                 <a ng-click="vm.love(pics)"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                <p>{{pics.count}} people Love this picture!!</p>
+                <p>{{pics.likes}} people Love this picture!!</p>
 
                 <form>
                     <a class="btn btn-large btn-primary" href="#" ng-click="makeAComment = !makeAComment">
                     <i class="fa fa-comment" aria-hidden="true"></i> Make a Comment</a>
                     <div ng-show="makeAComment">
-                        <input type="text" ng-model="vm.person" placeholder="Who's Commenting"> 
+                        <input type="text" ng-model="vm.name" placeholder="Who's Commenting"> 
                         <input type="text" ng-model="vm.comment" placeholder="Comment Here">
-                        <button class="btn btn-secondary" ng-click="vm.makeComment(vm.person, vm.comment)" >Show Comments</button>
+                        <button class="btn btn-secondary" ng-click="vm.addInfo(pics.gallery_id, vm.name, vm.comment)" >Show Comments</button>
                     
-                    <ul ng-repeat="thoughts in vm.comments">
-                        <li ng-show="thoughts">{{thoughts.person}} - {{thoughts.comment}}</li>
+                    <ul ng-repeat="thoughts in vm.imageList">
+                        <li ng-show="thoughts">{{thoughts.name}} - {{thoughts.comment}}</li>
                     </ul>
                     </div>
                     <!-- fix comment section -->
