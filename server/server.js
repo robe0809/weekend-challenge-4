@@ -1,12 +1,13 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const port = 5000;
+const port = process.env.PORT || 5000;
+const galleryRoute = require('./router/gallery.router')
 
 app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
-// Routes
+app.use('/gallery', galleryRoute);
 
 
 app.listen(port, function (){

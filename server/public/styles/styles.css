@@ -1,9 +1,6 @@
 header {
     height: 50px;
-    text-align: center;
-}
-body {
-    background-color: black;
+    text-align: left;
 }
 
 #pictureModal {
@@ -12,11 +9,14 @@ body {
 }
 /* the images that show up on load */
 #onLoadImg {
-    height: 200px;
-    width: 400px;
-    padding: 0 20px 0 20px;
+    height: 175px;
+    width: 350px;
+    padding: 0 5px 0 5px;
     object-fit: cover;
     image-orientation: from-image;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    margin: 0;
 }
 #onLoadImg:hover {
     opacity: 0.4;
@@ -24,8 +24,13 @@ body {
 
 /* The DIV that holds the onload pictures */
 #picDiv {
-    display: inline-block;
     padding: 5px;
+    align-content: center;
+}
+.col-md-4 {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
 }
 
 /* The Modal itself */
@@ -84,8 +89,6 @@ button {
 }
 ul {
     background-color: whitesmoke;
-    border-bottom: 1px solid black;
-    border-collapse: collapse;
 }
 li {
     width: 25%;
