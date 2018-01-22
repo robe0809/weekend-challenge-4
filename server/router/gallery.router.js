@@ -41,4 +41,18 @@ router.put('/views/:id', (req, res) => {
     });
 });
 
+router.post('/info/', (req, res) => {
+    console.log('req.body', req.body.name, req.body.comment);
+    
+    let queryText = 'INSERT INTO info (name, comment) VALUES ($1, $2)';
+    pool.query(queryText, [req.body.name, req.body.comment])
+    .then((result) => {
+        console.log('successful post ', result);
+        res.sendStatus(201);
+    })
+    .catch((err) => {
+        console.log('error on post', err);
+        res.sendStatus(500);
+    });
+});
 module.exports = router;

@@ -6,33 +6,26 @@ const app = angular.module('galleryApp', []);
 app.controller("pictureController", ['$http', function ($http) {
     let self = this;
 
-self.comments = [];
+self.comments = [{}];
 
+// GET pictures from database
 self.getPictures = function () {
     $http.get('/gallery')
     .then(function(response) {
         console.log(response.data);
         self.imageList = response.data;
     })
-}
-self.getPictures();
+} 
+self.getPictures(); // call get Pictures
 
-// excapes the modal without counting it as a view;
-self.escape = function (pics) {
-    if(pics.showModal == true) {
-        pics.showModal = false;
-        pics.views++;
-    }
-}
 
 // shows modal when picture is clicked
 // hides modal when the x is clicked. 
-// counts views
     self.togglePictures = function (pics) {
         if(pics.showModal == true) {
             pics.showModal = false;
-            pics.views++
-        } else {
+        } 
+        else {
             pics.showModal = true;
         }
         console.log(pics.views);
@@ -42,23 +35,35 @@ self.escape = function (pics) {
             console.log('successful response', response);
         });
     }
-    // keeps track of likes
-    
+
+// escapes the modal counts views;
+    self.escape = function (pics) {
+    if(pics.showModal == true) {
+        pics.showModal = false;
+        pics.views++;
+    }
+}
+
+// keeps track of likes
     self.love = function (pics) {
         pics.likes++
         $http.put('/gallery/views/' + pics.id, pics)
         .then(function (response) {
             console.log('successful response', response);
-        }
-        )}
+        });
+    };
 
-    // allows user to make a comment
-    self.makeComment = function (person, comment) {
-        self.newComment = {
-            person: person,
-            comment: comment
-        };
-        self.comments.push(self.newComment);
+// allows user to make a comment
+    self.makeComment = function (info) {
+        $http.post('/gallery/info/', info)
+        .then(function(response) {
+            console.log('successful post', response); 
+            self.info = {
+                name: info.name, 
+                comment: info.comment
+            }
+            self.comments.push(self.info)       
+        })
     };
 
 

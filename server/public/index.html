@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My Gallery</title>
     <script src="vendors/angular.min.js"></script>
     <script src="scripts/client.js"></script>
@@ -25,7 +21,6 @@
         <div id="modalDiv" ng-if="pics.showModal">
 
             <section id="modal-body">
-                    <!-- ng-click="vm.togglePictures(pics)" -->
                 <span ng-click="vm.escape(pics)"class="escapeModal">&times;</span>
                 <p>Views: {{pics.views + 1}}</p>
 
@@ -44,13 +39,14 @@
                     <a class="btn btn-large btn-primary" href="#" ng-click="makeAComment = !makeAComment">
                     <i class="fa fa-comment" aria-hidden="true"></i> Make a Comment</a>
                     <div ng-show="makeAComment">
-                        <input type="text" ng-model="vm.name" placeholder="Who's Commenting"> 
-                        <input type="text" ng-model="vm.comment" placeholder="Comment Here">
-                        <button class="btn btn-secondary" ng-click="vm.addInfo(pics.gallery_id, vm.name, vm.comment)" >Show Comments</button>
-                    
-                    <ul ng-repeat="thoughts in vm.imageList">
-                        <li ng-show="thoughts">{{thoughts.name}} - {{thoughts.comment}}</li>
-                    </ul>
+                        <input type="text" ng-model="vm.info.name" placeholder="Who's Commenting"> 
+                        <input type="text" ng-model="vm.info.comment" placeholder="Comment Here">
+                        <button class="btn btn-secondary" ng-click="vm.makeComment(vm.info)">Submit Comment</button>
+                    <div/>
+                    <div>
+                        <ul ng-repeat="thoughts in vm.comments">
+                            <li> {{thoughts.name}} - {{thoughts.comment}}</li>
+                        </ul>
                     </div>
                     <!-- fix comment section -->
                 </form>
