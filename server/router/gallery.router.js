@@ -41,10 +41,9 @@ router.put('/views/:id', (req, res) => {
     });
 });
 
-router.post('/info/', (req, res) => {
-    console.log('req.body', req.body.name, req.body.comment);
-    
+router.post('/', (req, res) => {
     let queryText = 'INSERT INTO info (name, comment) VALUES ($1, $2)';
+    console.log('req.body', req.body);
     pool.query(queryText, [req.body.name, req.body.comment])
     .then((result) => {
         console.log('successful post ', result);
@@ -55,4 +54,18 @@ router.post('/info/', (req, res) => {
         res.sendStatus(500);
     });
 });
+
+// router.get('/info/', (req, res) => {
+//     let queryText = `SELECT * FROM info`;
+//     pool.query(queryText) 
+//     .then((result) => {
+//         console.log('get info request', result.rows);
+//         res.send(result.rows);
+//     })
+//     .catch((err) => {
+//         console.log('get all error', err);
+//         res.sendStatus(500);
+//     })
+// });
+
 module.exports = router;

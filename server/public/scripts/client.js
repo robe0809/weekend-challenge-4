@@ -7,7 +7,6 @@ app.controller("pictureController", ['$http', function ($http) {
     let self = this;
 
 self.comments = [];
-
 // GET pictures from database
 self.getPictures = function () {
     $http.get('/gallery')
@@ -54,17 +53,20 @@ self.getPictures(); // call get Pictures
     };
 
 // allows user to make a comment
+    // self.getComments = function (info) {
+    //     $http.get('/gallery/info/')
+    //     .then(function (response) {
+    //         console.log('successful get response', response.data);
+    //         self.comments = response.data;
+    //     })
+    // }
     self.makeComment = function (info) {
-        $http.post('/gallery/info/', info)
+        console.log(self.comments);
+        console.log(info);
+        $http.post('/gallery', info) 
         .then(function(response) {
             console.log('successful post', response); 
-            self.info = {
-                name: info.name, 
-                comment: info.comment
-            }
-            self.comments.push(self.info)       
+            self.comments.push(self.info);   
         })
     };
-
-
 }])

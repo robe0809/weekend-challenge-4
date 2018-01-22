@@ -44,8 +44,8 @@
                         <button class="btn btn-secondary" ng-click="vm.makeComment(vm.info)">Submit Comment</button>
                     <div/>
                     <div>
-                        <ul ng-repeat="thoughts in vm.comments">
-                            <li> {{thoughts.name}} - {{thoughts.comment}}</li>
+                        <ul ng-repeat="info in vm.comments">
+                            <li> {{info.name}} - {{info.comment}}</li>
                         </ul>
                     </div>
                     <!-- fix comment section -->
