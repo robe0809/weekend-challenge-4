@@ -6,7 +6,7 @@ const app = angular.module('galleryApp', []);
 app.controller("pictureController", ['$http', function ($http) {
     let self = this;
 
-self.comments = [{}];
+self.comments = [];
 
 // GET pictures from database
 self.getPictures = function () {
