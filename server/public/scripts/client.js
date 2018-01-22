@@ -53,13 +53,6 @@ self.getPictures(); // call get Pictures
     };
 
 // allows user to make a comment
-    // self.getComments = function (info) {
-    //     $http.get('/gallery/info/')
-    //     .then(function (response) {
-    //         console.log('successful get response', response.data);
-    //         self.comments = response.data;
-    //     })
-    // }
     self.makeComment = function (info) {
         console.log(self.comments);
         console.log(info);

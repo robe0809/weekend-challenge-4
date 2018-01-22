@@ -55,17 +55,4 @@ router.post('/', (req, res) => {
     });
 });
 
-// router.get('/info/', (req, res) => {
-//     let queryText = `SELECT * FROM info`;
-//     pool.query(queryText) 
-//     .then((result) => {
-//         console.log('get info request', result.rows);
-//         res.send(result.rows);
-//     })
-//     .catch((err) => {
-//         console.log('get all error', err);
-//         res.sendStatus(500);
-//     })
-// });
-
 module.exports = router;
