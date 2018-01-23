@@ -47,7 +47,6 @@ router.put('/views/:id', (req, res) => {
 // posts comments
 router.post('/', (req, res) => {
     let queryText = 'INSERT INTO info (name, comment) VALUES ($1, $2)';
-    console.log('req.body', req.body);
     pool.query(queryText, [req.body.name, req.body.comment])
     .then((result) => {
         console.log('successful post ', result);

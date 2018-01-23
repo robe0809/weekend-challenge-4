@@ -60,7 +60,6 @@ self.getPictures(); // call get Pictures
         $http.post('/gallery', info) 
         .then(function(response) {
             console.log('successful post', response); 
-            self.getComment();  
             self.info = {}; 
         })
     };
@@ -70,5 +69,4 @@ self.getPictures(); // call get Pictures
             console.log('successful get', response.data); 
         })
     }
-    self.getComment();
 }])
