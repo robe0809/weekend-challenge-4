@@ -31,7 +31,7 @@
                 <form>
                     <a class="btn btn-large btn-primary" href="#" ng-click="makeAComment = !makeAComment">
                     <i class="fa fa-comment" aria-hidden="true"></i> Make a Comment</a>
-                    <div ng-show="makeAComment">
+                    <div ng-if="makeAComment">
                         <input type="text" ng-model="vm.info.name" placeholder="Who's Commenting"> 
                         <input type="text" ng-model="vm.info.comment" placeholder="Comment Here">
                         <button class="btn btn-secondary" ng-click="vm.makeComment(vm.info)">Submit Comment</button>
