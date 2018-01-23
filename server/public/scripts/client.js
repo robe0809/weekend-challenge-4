@@ -56,10 +56,19 @@ self.getPictures(); // call get Pictures
     self.makeComment = function (info) {
         console.log(self.comments);
         console.log(info);
+        self.comments.push(angular.copy(self.info));
         $http.post('/gallery', info) 
         .then(function(response) {
             console.log('successful post', response); 
-            self.comments.push(self.info);   
+            self.getComment();  
+            self.info = {}; 
         })
     };
+    self.getComment = function () {
+        $http.post('/gallery') 
+        .then(function(response) {
+            console.log('successful get', response.data); 
+        })
+    }
+    self.getComment();
 }])

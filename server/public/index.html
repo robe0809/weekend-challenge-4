@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
 </head>
 <body ng-app="galleryApp">
 <div ng-controller="pictureController as vm" class="container">
@@ -15,26 +14,20 @@
     <h1>My Gallery</h1>
 </header>
 <section id="pictureModal" class="row">
-
     <div id="picDiv" ng-repeat="pics in vm.imageList" class="col-md-4">
         <a target="_blank" href=""><img id="onLoadImg" ng-click="vm.togglePictures(pics)" ng-src="{{pics.img}}"></a>
         <div id="modalDiv" ng-if="pics.showModal">
-
             <section id="modal-body">
                 <span ng-click="vm.escape(pics)"class="escapeModal">&times;</span>
                 <p>Views: {{pics.views + 1}}</p>
-
                 <!-- <span ng-click="vm.previous()" class="previous"><i class="fa fa-arrow-left" ng-click="previous()" style="font-size: 56px"></i></span> -->
                     <img id="modalImg" ng-src="{{pics.img}}">
                 <!-- <span ng-click="vm.next(pics.img)" class="next"><i class="fa fa-arrow-right" ng-click="next(pics)" style="font-size: 56px"></i></span> -->
-                
                 <div id="description">
                     <p>{{pics.description}}</p>
                 </div>
-
                 <a ng-click="vm.love(pics)"><i class="fa fa-heart" aria-hidden="true"></i></a>
                 <p>{{pics.likes}} people Love this picture!!</p>
-
                 <form>
                     <a class="btn btn-large btn-primary" href="#" ng-click="makeAComment = !makeAComment">
                     <i class="fa fa-comment" aria-hidden="true"></i> Make a Comment</a>
@@ -43,15 +36,13 @@
                         <input type="text" ng-model="vm.info.comment" placeholder="Comment Here">
                         <button class="btn btn-secondary" ng-click="vm.makeComment(vm.info)">Submit Comment</button>
                     <div/>
-                    <div>
-                        <ul ng-repeat="info in vm.comments">
-                            <li> {{info.name}} - {{info.comment}}</li>
-                        </ul>
+                    <div id="commentSection">
+                        <div ng-repeat="info in vm.comments">
+                            <p> {{info.name}} - {{info.comment}}</p>
+                        </div>
                     </div>
-                    <!-- fix comment section -->
                 </form>
             </section>
-
         </div>
     </div>
 </section>
