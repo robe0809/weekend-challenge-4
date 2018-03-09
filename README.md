@@ -29,8 +29,8 @@ Link to software that is required to install the app (e.g. node).
 - ```npm install```
 
 ## Screen Shot
-![alt text](https://github.com/robe0809/weekend-challenge-4/blob/master/Screen%20Shot%202018-03-09%20at%207.50.58%20AM.png "main View")
-![alt text](https://github.com/robe0809/park-stop-app/blob/master/Screen%20Shot%202018-02-24%20at%202.27.39%20PM.png "park")
+![alt text](https://github.com/robe0809/weekend-challenge-4/blob/master/Screen%20Shot%202018-03-09%20at%207.50.58%20AM.png "main view")
+![alt text](https://github.com/robe0809/weekend-challenge-4/blob/master/Screen%20Shot%202018-03-09%20at%207.54.45%20AM.png "photo view")
 
 ### Completed Features
 
