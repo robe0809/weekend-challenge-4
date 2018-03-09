@@ -2,12 +2,17 @@ header {
     height: 50px;
     text-align: left;
 }
-
+.galleryHeader {
+    text-align: center;
+    margin: 50px;
+}
 /* section that encompasses the modal */
 #pictureModal {
     width: 100%;
     margin: 0 auto;
+    padding-top: 50px;
 }
+
 /* the images that show up on load */
 #onLoadImg {
     height: 175px;
